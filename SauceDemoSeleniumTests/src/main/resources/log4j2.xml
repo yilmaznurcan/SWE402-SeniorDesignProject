@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Log4j2 yapılandırma dosyası -->
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Konsola log yazmak için appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- Günlük dosyalarına yazmak için rolling file appender -->
+        <RollingFile name="RollingFileLogger"
+                     fileName="logs/test-log.log"
+                     filePattern="logs/test-log-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <!-- Dosya boyutu 5MB'ı geçerse yeni dosyaya geç -->
+                <SizeBasedTriggeringPolicy size="5MB"/>
+                <!-- Her gün yeni dosyaya geç -->
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <!-- En fazla 10 adet log dosyası tut -->
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Test klasöründeki loglar için yapılandırma -->
+        <Logger name="tests" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileLogger"/>
+        </Logger>
+
+        <!-- Page klasöründeki loglar için yapılandırma -->
+        <Logger name="pages" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileLogger"/>
+        </Logger>
+
+        <!-- Varsayılan root logger -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,53 @@
+# -------------------------------
+# ✅ Maven: Derleme çıktıları ve build klasörü
+# -------------------------------
+/target/
+
+# -------------------------------
+# ✅ IntelliJ IDEA: Proje yapılandırma ve cache dosyaları
+# -------------------------------
+/.idea/        # IntelliJ proje klasörü
+/*.iml         # IntelliJ proje modül dosyaları
+
+# -------------------------------
+# ✅ Çalışma klasörü ve geçici çıktı dosyaları
+# -------------------------------
+/out/          # Java derleme çıktıları
+/out-tsc/      # TypeScript derleme çıktısı (projede varsa)
+
+# -------------------------------
+# ✅ OS (İşletim Sistemi): Gizli dosyalar
+# -------------------------------
+.DS_Store      # macOS sistem dosyası
+Thumbs.db      # Windows resim önbellek dosyası
+
+# -------------------------------
+# ✅ Maven Wrapper: Varsa proje dışı tutulabilir
+# -------------------------------
+/.mvn/         # Maven Wrapper dizini
+/mvnw          # Unix için çalıştırılabilir Maven Wrapper
+/mvnw.cmd      # Windows için çalıştırılabilir Maven Wrapper
+
+# -------------------------------
+# ✅ Log dosyaları: Test, uygulama, framework logları
+# -------------------------------
+*.log
+
+# -------------------------------
+# ✅ Test raporları: JUnit, Surefire vb.
+# -------------------------------
+/allure-results/
+/allure-report/
+/target/surefire-reports/
+/target/failsafe-reports/
+
+# -------------------------------
+# ✅ WebDriver dosyaları: Manuel indirilen/geçici driverlar
+# -------------------------------
+/drivers/
+
+# -------------------------------
+# ✅ Geçici/Cached/Debug dosyaları
+# -------------------------------
+*.tmp
+*.temp
